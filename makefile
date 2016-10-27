@@ -1,5 +1,12 @@
-random:rand.c
-	gcc -o random rand.c
+all: rand.o
+	gcc rand.o
 
-run:random
-	./random
+rand.o: rand.c
+	gcc -c rand.c
+
+clean:
+	rm *.o
+	rm *~
+
+run: all
+	./a.out

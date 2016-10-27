@@ -1,4 +1,3 @@
-BBB//#include </dev/random>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -30,6 +29,7 @@ int getrand(){
 
 
 int main(){
+  printf("adding nums to array----------\n");
   int i =0;
   int a[10];
   for(; i<10;i++){
@@ -48,7 +48,7 @@ int main(){
   if (closing <0){
     printf("error %d -%s",errno,strerror(errno));
   }
-  
+  printf("reading from file---------------\n");
   int b[10];
   int red2 = open("random.txt",O_RDONLY);
   if (red2<0){
@@ -59,8 +59,9 @@ int main(){
     printf("error %d -%s",errno,strerror(errno));
   }
   int k =0;
-  while(k<0){
-    printf("%d\n", b[k]);
+  while(k<10){
+    printf("%d -- %d\n",k, b[k]);
+    k++;
   }  
 return 0; 
 }
